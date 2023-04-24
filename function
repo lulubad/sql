@@ -1,0 +1,16 @@
+#jason对象解析
+get_json_object(result_contxt, '$.feature') as feature
+
+#行转列
+collect_list()
+collect_set()去重
+搭配CONCAT_WS(separator, str1, str2,...)
+
+#列转行
+select
+col1,
+col2
+from
+table a
+lateral view explode(split(col,' ')) tableAlias AS col1 **columnAlias  --笛卡尔积，转化成虚拟表，无lateral函数，udtf函数是无法和其他列笛卡尔积，不同数量相对
+**explode:UDTF函数：user-defined-table-function,爆炸函数，一转多行
